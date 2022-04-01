@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Adicionar ou editar um produto.</h6>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn" (click)="onSubmit()">{{titleButton}}</button>
+                        <button type="button" class="btn ms-2" routerLink="/produtos">CANCELAR</button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <form [formGroup]="form">
+                                <label>Nome</label>
+                                <input formControlName="name" type="text" name="" id="name"
+                                    placeholder="Digite um nome para o produto">
+                                <small *ngIf="form.controls['name'].invalid && isSubmitted">Digite um nome para
+                                    categoria</small>
+                            </form>
+                        </div>
+                        <div class="col-6">
+                            <form [formGroup]="form">
+                                <label>Marca</label>
+                                <input formControlName="brand" type="text" name="" id="brand"
+                                    placeholder="Digite uma marca para o produto">
+                                <small *ngIf="form.controls['brand'].invalid && isSubmitted">Digite uma marca para o
+                                    produto</small>
+                            </form>
+                        </div>
+                        <div class="col-6 mt-2">
+                            <form [formGroup]="form">
+                                <label>Preço</label>
+                                <input formControlName="price" type="number" name="" min="0.00" max="10000.00"
+                                    step="0.01" id="price" placeholder="Digite um preço para o produto">
+                                <small *ngIf="form.controls['price'].invalid && isSubmitted">Digite um preço para o
+                                    produto</small>
+                            </form>
+                        </div>
+                        <div class="col-6 mt-2">
+                            <form [formGroup]="form">
+                                <label>Produto em Estoque</label>
+                                <input formControlName="countInStock" type="number" name="" min="0" max="10000" step="0"
+                                    id="countInStock" placeholder="Digite uma quantidade do produto em estoque">
+                                <small *ngIf="form.controls['countInStock'].invalid && isSubmitted">Digite uma
+                                    quantidade do produto em estoque</small>
+                            </form>
+                        </div>
+
+                        <div class="col-6 mt-2">
+                            <form [formGroup]="form">
+                                <label>Categoria</label>
+                                <!-- <input class="form-control" list="datalistOptions" id="category" formControlName="category"
+                                    placeholder="Type to search...">
+                                <datalist id="datalistOptions">
+                                    <option *ngFor="let category of categories" [value]="category.id">
+                                </datalist> -->
+                                <select formControlName="category" name="" id="category">
+                                    <option selected></option>
+                                    <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+                                </select>
+                                <small *ngIf="form.controls['category'].invalid && isSubmitted">Escolha uma
+                                    categoria</small>
+                            </form>
+                        </div>
+
+                        <div class="col-6 mt-2">
+                            <form [formGroup]="form">
+                                <label>Produto em Destaque</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="isFeatured"
+                                        formControlName="isFeatured">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <form [formGroup]="form">
+                                <label>Descrição</label>
+                                <textarea formControlName="description" name="" id="description"
+                                    placeholder="Digite uma descrição para o produto"></textarea>
+                                <small *ngIf="form.controls['description'].invalid && isSubmitted">Digite a descrição do
+                                    produto</small>
+                            </form>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <form [formGroup]="form">
+                                <label>Detalhes do Produto</label>
+                                <angular-editor [config]="editorConfig" [placeholder]="'Digite os detalhes do produto'"
+                                    formControlName="richDescription">
+                                </angular-editor>
+                            </form>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <form [formGroup]="form">
+                                <label>Imagem Principal</label>
+                                <div>
+                                    <input type="file" name="" id="image" accept="image/*" (change)="onImageUpload($event)">
+                                </div>
+                            </form>
+                            <small *ngIf="form.controls['image'].invalid && isSubmitted">Escolha uma
+                                imagem</small>
+                            <img [src]="imageDisplay" alt="" class="mt-2">
+                        </div>
+
+                        <div class="col-12 mt-2" *ngIf="editmode">
+                            <form [formGroup]="form">
+                                <label>Imagem Principal</label>
+                                <div>
+                                    <input type="file" multiple name="" id="images" accept="image/*" (change)="onImageUploads($event)">
+                                </div>
+                            </form>
+                            <small *ngIf="form.controls['images'].invalid && isSubmitted">Escolha uma
+                                imagem</small>
+                            <img [src]="imageDisplays" alt="" class="mt-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

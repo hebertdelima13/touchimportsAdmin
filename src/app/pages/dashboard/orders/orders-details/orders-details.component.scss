@@ -1,0 +1,54 @@
+@import "../../../../../styles.scss";
+
+.card {
+    .card-body {
+        h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        h6 {
+            font-size: .8rem;
+            font-weight: 500;
+            color: $primary!important;
+        }
+
+        button {
+            font-size: .9rem;
+            font-weight: 400;
+            color: $white;
+            background: $black;
+
+            &:hover {
+                background: $primary;
+            }
+        }
+
+         select {
+            font-size: .7rem;
+            font-weight: 400;
+            color: $black;
+            width: 6.6rem;
+            height: 2rem;
+            padding-left: .6rem;
+            border-radius: $border-radius;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            font-size: .8rem;
+            font-weight: 600;
+        }
+
+        span, p-dropdown {
+            font-size: .8rem;
+            font-weight: 400;
+        }
+
+        .totalPrice {
+            label, span {
+                color: $primary;
+            }
+        }
+    }
+}

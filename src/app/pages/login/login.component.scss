@@ -1,0 +1,52 @@
+@import "../../../styles.scss";
+
+.card-container {
+    margin: auto;
+    height: 100vh;
+    overflow: hidden!important;
+
+    .card {
+        width: 380px;
+        height: 320px;
+        color: $black;    
+        background: #fffefe;
+        border: 1px solid $light;
+        border-radius: 0.8rem;
+        box-shadow: 0 0 15px 7px $light;
+
+        img {
+            width: 120px;
+            height: 60px;
+        }
+        
+        input {
+            height: 35px;
+            width: 280px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid $primary;
+            border-radius: 0.8rem;
+            box-shadow: none;
+        }
+        
+        button {
+            background: $primary;
+            font-weight: 500;
+            color: $white;
+            width: 280px;
+
+            &:hover {
+                background: $black;
+            }
+        }
+
+        small {
+            font-size: .6rem;
+            font-weight: 400;
+            color: red;
+        }
+    }
+
+    
+}
+

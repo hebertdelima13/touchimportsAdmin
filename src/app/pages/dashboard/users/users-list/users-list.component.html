@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Usuários</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Lista de todos os usuários.</h6>
+                    <button type="button" class="btn" routerLink="form">NOVO</button>
+
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Administrador</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let user of users">
+                            <tr>
+                                <th scope="row">{{user.name}}</th>
+                                <td>{{user.email}}</td>
+                                <td><i class="bi bi-check-square-fill" *ngIf="user.isAdmin"></i>
+                                    <i class="bi bi-x-square-fill" *ngIf="!user.isAdmin"></i>
+                                </td>
+                                <!-- <td>{{user.isAdmin}}</td> -->
+                                <td>
+                                    <button class="btn" (click)="deleteUser(user.id)"><i
+                                            class="bi bi-trash"></i></button>
+                                    <button class="btn ms-2" (click)="updateUser(user.id)"><i
+                                            class="bi bi-pencil-square"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

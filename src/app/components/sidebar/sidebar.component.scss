@@ -1,0 +1,35 @@
+@import "../../../styles.scss";
+
+.logo {
+  img {
+    width: 6.25rem;
+  }
+}
+
+.links {
+  ul {
+    padding: 0;
+  }
+
+  li {
+    padding: 0.5rem 0;
+  }
+
+  a {
+    font-size: .8rem;
+    color: $white;
+
+    & i {
+      font-size: 1rem;
+      color: $white;
+    }
+
+    &:hover {
+      color: $primary;
+
+      & i {
+        color: $primary;
+      }
+    }
+  }
+}

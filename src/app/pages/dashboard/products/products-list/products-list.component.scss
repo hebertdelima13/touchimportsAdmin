@@ -1,0 +1,53 @@
+@import "../../../../../styles.scss";
+
+.card {
+    .card-body {
+        h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        h6 {
+            font-size: .8rem;
+            font-weight: 500;
+            color: $primary!important;
+        }
+
+        button {
+            font-size: .7rem;
+            font-weight: 400;
+            color: $white;
+            background: $black;
+
+            &:hover {
+                background: $primary;
+            }
+
+            i {
+                color: $white;
+            }
+        }
+
+        .table {
+            font-size: .8rem;
+            vertical-align: 0!important;
+
+            img {
+                width:70px;
+            }
+
+            thead {
+                background: $primary;
+                               
+                th {
+                    font-weight: 500;
+                    color: $white!important;
+                }
+            }
+        }
+
+        pagination-controls {
+            font-size: .8rem;
+        }
+    }
+}

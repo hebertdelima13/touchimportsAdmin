@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card-container d-flex justify-content-center align-items-center">
+                <div class="card d-flex align-items-center justify-content-center">
+                    <div>
+                        <img src="./assets/logo.png" alt="">
+                    </div>
+                    <form [formGroup]="loginFormGroup">
+                        <div>
+                            <input class="form-control mt-4 ps-2" type="text" formControlName="email"
+                                placeholder="Digite seu nome para entrar" (keyup.enter)="onSubmit()">
+                            <small *ngIf="loginFormGroup.controls['email'].invalid && isSubmitted">Digite um email
+                            </small>
+                        </div>
+                    </form>
+                    <form [formGroup]="loginFormGroup">
+                        <div>
+                            <input class="form-control mt-3 ps-2" type="password" formControlName="password"
+                                placeholder="Digite sua senha para entrar" (keyup.enter)="onSubmit()">
+                        </div>
+                        <small *ngIf="loginFormGroup.controls['password'].invalid && isSubmitted">Digite uma senha
+                        </small>
+                    </form>
+                    <button class="btn mt-4 mb-3" (click)="onSubmit()">Entrar</button>
+                    <small *ngIf="isSubmitted && authError">{{authMessage}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Editar Status</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Editar o status de um pedido.</h6>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn" (click)="onSubmit()">ATUALIZAR</button>
+                        <button type="button" class="btn ms-2" routerLink="/pedidos">CANCELAR</button>
+                    </div>
+
+                    <div class="accordion mt-3" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Detalhe do Pedido
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col-4 d-flex flex-column">
+                                            <label>Id do pedido</label>
+                                            <span>{{order.id}}</span>
+                                        </div>
+                                        <div class="col-4 d-flex flex-column">
+                                            <label>Data do pedido</label>
+                                            <span>{{order.dateOrdered | date: 'dd/MM/yyyy'}}</span>
+                                        </div>
+                                        <div class="col-4 d-flex flex-column">
+                                            <label>Status do pedido</label>
+                                            <!-- <p-dropdown [options]="orderStatuses" optionLabel="name" optionValue="id"
+                                                (onChange)="onStatusChange($event)" [(ngModel)]="selectedStatus">
+                                            </p-dropdown> -->
+                                            <!-- <select>
+                                                <option *ngFor="let order of orderStatuses" 
+                                                (change)="onStatusChange($event)">{{order.name}}</option>
+                                            </select> -->
+                                            <form [formGroup]="form">
+                                            <select formControlName="status" id="status">
+                                                <option *ngFor="let order of orderStatuses">{{order.name}}</option>
+                                            </select>
+                                        </form>
+                                        </div>
+                                        <div class="col-12 d-flex flex-column mt-3">
+                                            <label>Preço total do pedido</label>
+                                            <span>{{order.totalPrice | currency}}</span>
+                                        </div>
+                                        <br><br><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Itens do Pedido
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <label>Nome</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>Marca</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>Categoria</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>Preço</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>Quantidade</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>Subtotal</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" *ngFor="let orderItem of order.orderItems">
+                                        <div class="col-2">
+                                            <span>{{orderItem.product.name}}</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span>{{orderItem.product.brand}}</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span>{{orderItem.product.category.name}}</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span>{{orderItem.product.price | currency}}</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span>{{orderItem.quantity}}</span>
+                                        </div>
+                                        <div class="col-2">
+                                            <span>{{orderItem.product.price * orderItem.quantity | currency}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-3 totalPrice">
+                                        <label>Total do pedido:</label>
+                                        <span> {{order.totalPrice | currency}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Informações do Pedido
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col-5 d-flex flex-column">
+                                            <label>Endereço do pedido</label>
+                                            <span> {{order.shippingAddress1}}</span>
+                                            <span> {{order.shippingAddress2}}</span>
+                                            <span> {{order.zip}} {{order.city}}</span>
+                                            <span> {{order.country}}</span>
+                                        </div>
+                                        <div class="col-4 d-flex flex-column">
+                                            <label>Informação do cliente</label>
+                                            <span> {{order.user?.name}}</span>
+                                        </div>
+                                        <div class="col-3 d-flex flex-column">
+                                            <label>Contato do cliente</label>
+                                            <span> {{order.phone}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

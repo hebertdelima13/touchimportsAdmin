@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pedidos</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Lista de todas os pedidos.</h6>
+
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Valor Total</th>
+                                <th scope="col">Data do Pedido</th>
+                                <th scope="col">Status do Pedido</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let order of orders">
+                            <tr>
+                                <th scope="row">{{order.user?.name}}</th>
+                                <td>{{order.totalPrice | currency}}</td>
+                                <td>{{order.dateOrdered | date: 'dd/MM/yyyy'}}</td>
+                                <td><span class="badge bg-warning" id="status">{{order.status}}</span></td>
+                                <td>
+                                    <button class="btn" (click)="deleteOrder(order.id)"><i class="bi bi-trash"></i></button>
+                                    <button class="btn ms-2" (click)="showOrder(order.id)"><i class="bi bi-eye-fill"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

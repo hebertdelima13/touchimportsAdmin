@@ -1,0 +1,106 @@
+@import "../../../../../styles.scss";
+
+.card {
+    .card-body {
+
+        img {
+            width: 150px;
+        }
+        
+        h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        h6 {
+            font-size: .8rem;
+            font-weight: 500;
+            color: $primary!important;
+        }
+
+        button {
+            font-size: .7rem;
+            font-weight: 400;
+            color: $white;
+            background: $black;
+
+            &:hover {
+                background: $primary;
+            }
+        }
+
+        .table {
+            font-size: .8rem;
+
+            thead {
+                background: $primary;
+                
+                th {
+                    font-weight: 500;
+                    color: $white!important;
+                }
+            }
+        }
+
+        label {
+            font-size: .8rem;
+            font-weight: 500;
+        }
+
+        input[type='checkbox'] {
+            width: 50px;
+            height: 1.7rem;
+            box-shadow: none;
+            border: 1px solid $primary;
+
+            &:checked {
+                background-color: $primary;
+                border: none;
+            }
+        }
+
+        input[type='text'], input[type='number'], select {
+            font-size: .7rem;
+            font-weight: 400;
+            color: $black;
+            width: 100%;
+            height: 2rem;
+            padding-left: .6rem;
+            border-radius: $border-radius;
+            border: 1px solid #ccc;
+            outline: none;
+    
+            &::placeholder {
+                color: #ccc;
+            }
+        }
+
+        angular-editor, input[type='file'] {
+            font-size: .7rem;
+            font-weight: 400;
+            color: $black;
+        }
+
+        textarea {
+            font-size: .7rem;
+            font-weight: 400;
+            color: $black;
+            width: 100%;
+            height: 5rem;
+            padding-left: .6rem;
+            border-radius: $border-radius;
+            border: 1px solid #ccc;
+            outline: none;
+    
+            &::placeholder {
+                color: #ccc;
+            }
+        }
+
+        small {
+            font-size: .6rem;
+            font-weight: 400;
+            color: red;
+        }
+    }
+}

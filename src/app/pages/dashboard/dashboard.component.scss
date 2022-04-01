@@ -1,0 +1,107 @@
+@import "../../../styles.scss";
+
+.card {
+  .card-body {
+
+    .card-orders {
+        background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+        border: 0;
+    }
+    
+    .card-products {
+        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        border: 0;
+    }
+
+    .card-users {
+        background: linear-gradient(0deg, rgba(28,28,28,1) 0%, rgba(0,0,0,1) 100%);
+        border: 0;
+    }
+
+    .card-totalsales {
+        background: linear-gradient(0deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+        border: 0;
+    }
+
+
+    h5 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    h6 {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: $primary !important;
+    }
+
+    i {
+      font-size: 3rem;
+      color: $white !important;
+      height: 65px;
+    }
+
+    span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $white !important;
+    }
+
+    .number {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: $white !important;
+    }
+
+    button {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: $white;
+      background: $black;
+
+      &:hover {
+        background: $primary;
+      }
+    }
+
+    .table {
+      font-size: 0.8rem;
+
+      thead {
+        background: $primary;
+
+        th {
+          font-weight: 500;
+          color: $white !important;
+        }
+      }
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    input {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: $black;
+      width: 100%;
+      height: 2rem;
+      padding-left: 0.6rem;
+      border-radius: $border-radius;
+      border: 1px solid #ccc;
+      outline: none;
+
+      &::placeholder {
+        color: #ccc;
+      }
+    }
+
+    small {
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: red;
+    }
+  }
+}

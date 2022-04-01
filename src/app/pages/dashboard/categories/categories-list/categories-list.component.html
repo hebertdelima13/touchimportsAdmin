@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Categorias</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Lista de todas as categorias.</h6>
+                    <button type="button" class="btn" routerLink="form">NOVO</button>
+
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Ícone</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let category of categories">
+                            <tr>
+                                <th scope="row">{{category.name}}</th>
+                                <td>{{category.icon}}</td>
+                                <td>
+                                    <button class="btn" (click)="deleteCategory(category.id)"><i class="bi bi-trash"></i></button>
+                                    <button class="btn ms-2" (click)="updateCategory(category.id)"><i class="bi bi-pencil-square"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

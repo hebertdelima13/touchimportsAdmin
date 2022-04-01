@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Dashboard</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Últimas atualizações.</h6>
+
+                    <div class="row mt-5">
+                        <div class="col-3">
+                            <div class="card card-orders d-flex flex-row justify-content-between px-3 py-2">
+                                <div class="d-flex flex-column align-items-center">
+                                    <i class="bi bi-cart"></i>
+                                    <span>Pedidos</span>
+                                </div>
+                                <span class="number d-flex align-items-end">{{statistics[0]}}</span>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card card-products d-flex flex-row justify-content-between px-3 py-2">
+                                <div class="d-flex flex-column align-items-center">
+                                    <i class="bi bi-phone"></i>
+                                    <span>Produtos</span>
+                                </div>
+                                <span class="number d-flex align-items-end">{{statistics[1]}}</span>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card card-users d-flex flex-row justify-content-between px-3 py-2">
+                                <div class="d-flex flex-column align-items-center">
+                                    <i class="bi bi-people"></i>
+                                    <span>Usuários</span>
+                                </div>
+                                <span class="number d-flex align-items-end">{{statistics[2]}}</span>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card card-totalsales d-flex flex-row justify-content-between px-3 py-2">
+                                <div class="d-flex flex-column align-items-center">
+                                    <i class="bi bi-currency-dollar"></i>
+                                    <span>Total</span>
+                                </div>
+                                <span class="number d-flex align-items-end">{{statistics[3] | currency}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

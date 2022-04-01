@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Adicionar ou editar uma categoria.</h6>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn" (click)="onSubmit()">{{titleButton}}</button>
+                        <button type="button" class="btn ms-2" routerLink="/categorias">CANCELAR</button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <form [formGroup]="form">
+                                <label>Nome</label>
+                                <input formControlName="name" type="text" name="" id="name" placeholder="Digite um nome para categoria">
+                                <small *ngIf="form.controls['name'].invalid && isSubmitted">Digite um nome para categoria</small>
+                            </form>
+                        </div>
+                        <div class="col-6">
+                            <form [formGroup]="form">
+                                <label>Ícone</label>
+                                <input formControlName="icon" type="text" name="" id="icon" placeholder="Digite um ícone para categoria">
+                                <small *ngIf="form.controls['icon'].invalid && isSubmitted">Digite um icone para categoria</small>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

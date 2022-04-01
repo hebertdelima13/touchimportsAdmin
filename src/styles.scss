@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@import "~ngx-toastr/toastr";
+
+$primary: #ff9500;
+$black: #000000;
+$white: #ffffff;
+$light: #f9f9f9;
+$border-radius: 0.31rem;
+
+* {
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  color: $black;
+}
+
+.swiper-pagination-bullet {
+  background: $primary;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $primary;
+}
+
+.toast-message {
+  font-size: 0.7rem;
+  color: #fff;
+}
+
+.ngx-pagination .current {
+  background: $primary !important;
+}
+
+table {
+  border: none;
+
+  thead {
+    border-bottom: 1px solid;
+  }
+
+  tbody {
+    border: 0;
+  }
+}
+
+.accordion-button {
+  &::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+
+  &:focus {
+      box-shadow: none;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Produtos</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Lista de todos os produtos.</h6>
+                    <button type="button" class="btn" routerLink="form">NOVO</button>
+
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Imagem</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col">Estoque</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Criado em</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p }">
+                            <tr>
+                                <th scope="row">{{product.name}}</th>
+                                <td><img [src]="product.image"></td>
+                                <td>{{product.price | currency}}</td>
+                                <td>{{product.countInStock}}</td>
+                                <td>{{product.category?.name}}</td>
+                                <td>{{product.dateCreated | date: 'dd/MM/yyyy'}}</td>
+                                <td><button class="btn" (click)="deleteProduct(product.id)"><i class="bi bi-trash"></i></button>
+                                    <button class="btn ms-2" (click)="updateProduct(product.id)"><i
+                                            class="bi bi-pencil-square"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls class="d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

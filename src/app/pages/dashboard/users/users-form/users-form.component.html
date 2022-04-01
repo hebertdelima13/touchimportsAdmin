@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Adicionar ou editar uma usuário.</h6>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn" (click)="onSubmit()">{{titleButton}}</button>
+                        <button type="button" class="btn ms-2" routerLink="/usuarios">CANCELAR</button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <form [formGroup]="form">
+                                <label>Nome</label>
+                                <input formControlName="name" type="text" name="" id="name" placeholder="Digite um nome para o usuário">
+                                <small *ngIf="form.controls['name'].invalid && isSubmitted">Digite um nome para o usuário</small>
+                            </form>
+                        </div>
+                        <div class="col-4">
+                            <form [formGroup]="form">
+                                <label>E-mail</label>
+                                <input formControlName="email" type="text" name="" id="email" placeholder="Digite um e-mail para o usuário">
+                                <small *ngIf="form.controls['email'].invalid && isSubmitted">
+                                    <span *ngIf="form.controls['email'].errors?.['required']">Digite um e-mail para o usuário</span>
+                                    <span *ngIf="form.controls['email'].errors?.['email']">Digite um e-mail válido</span>
+                                </small>
+                            </form>
+                        </div>
+                        <div class="col-4">
+                            <form [formGroup]="form">
+                                <label>Senha</label>
+                                <input formControlName="password" type="password" name="" id="password" placeholder="Digite uma senha para o usário">
+                                <small *ngIf="form.controls['password'].invalid && isSubmitted">Digite uma senha para o usário</small>
+                            </form>
+                        </div>
+                        <div class="col-4 mt-2">
+                            <form [formGroup]="form">
+                                <label>Telefone</label>
+                                <input formControlName="phone" type="text" name="" id="phone" mask="(00) 00000-0000" [showMaskTyped]="true">
+                                <small *ngIf="form.controls['phone'].invalid && isSubmitted">Digite um telefone para o usário</small>
+                            </form>
+                        </div>
+                        <div class="col-8 mt-2">
+                            <form [formGroup]="form">
+                                <label>Administrador</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="isAdmin"
+                                        formControlName="isAdmin">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-4 mt-2">
+                            <form [formGroup]="form">
+                                <label>Rua</label>
+                                <input formControlName="street" type="text" name="" id="street" placeholder="Digite uma rua para o usário">
+                                <small *ngIf="form.controls['street'].invalid && isSubmitted">Digite uma rua para o usário</small>
+                            </form>
+                        </div>
+                        <div class="col-4 mt-2">
+                            <form [formGroup]="form">
+                                <label>Bairro</label>
+                                <input formControlName="apartment" type="text" name="" id="apartment" placeholder="Digite um bairro para o usário">
+                                <small *ngIf="form.controls['apartment'].invalid && isSubmitted">Digite um bairro para o usário</small>
+                            </form>
+                        </div>
+                        <div class="col-4 mt-2">
+                            <form [formGroup]="form">
+                                <label>Cep</label>
+                                <input formControlName="zip" type="text" name="" id="zip" mask="00000-000" [showMaskTyped]="true">
+                                <small *ngIf="form.controls['zip'].invalid && isSubmitted">Digite um cep para o usário</small>
+                            </form>
+                        </div>
+                        <div class="col-4 mt-2">
+                            <form [formGroup]="form">
+                                <label>Cidade</label>
+                                <input formControlName="city" type="text" name="" id="city" placeholder="Digite uma cidade para o usário">
+                                <small *ngIf="form.controls['city'].invalid && isSubmitted">Digite uma cidade para o usário</small>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
